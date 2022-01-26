@@ -26,12 +26,51 @@ const openModal = function () {
 	modal.classList.remove("hidden");
 	overlay.classList.remove("hidden");
 
-	const btnLogin = document.getElementById("btnLogin");
-	console.log(btnLogin);
-	btnLogin.addEventListener("click", function (e) {
+	const btnDetails = document.getElementById("btnDetails");
+	console.log(btnDetails);
+	btnDetails.addEventListener("click", function (e) {
 		e.preventDefault();
-		window.location = "app/index.html";
+		storeLoginData();
 	});
+};
+
+const showDetails = function (fName, lName, pin) {
+	const name = `${fName} ${lName}`;
+
+	let username = name
+		.toLowerCase()
+		.split(" ")
+		.map((name) => name[0])
+		.join("");
+
+	localStorage.setItem("bankistFullName", `${name}`);
+	localStorage.setItem("bankistPin", `${pin}`);
+
+	console.log(username);
+	document.querySelector(".login-page").classList.add("hide");
+	document.querySelector(".login-details").classList.remove("hide");
+
+	document.getElementById("username").textContent = username;
+	document.getElementById("pin").textContent = pin;
+};
+
+const btnLogin = document.getElementById("btnLogin");
+btnLogin.addEventListener("click", () => {
+	window.location = "app/index.html";
+});
+
+const storeLoginData = function () {
+	let fName = document.getElementById("fName").value;
+	let lName = document.getElementById("lName").value;
+
+	function randomIntFromInterval(min, max) {
+		// min and max included
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+
+	let pin = randomIntFromInterval(1000, 9999);
+
+	showDetails(fName, lName, pin);
 };
 
 const closeModal = function () {

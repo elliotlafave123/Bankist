@@ -376,19 +376,39 @@
 
 		<div class="modal hidden">
 			<button class="btn--close-modal">&times;</button>
-			<h2 class="modal__header">
-				Open your bank account <br />
-				in just <span class="highlight">5 minutes</span>
-			</h2>
-			<form class="modal__form">
-				<label>First Name</label>
-				<input type="text" />
-				<label>Last Name</label>
-				<input type="text" />
-				<label>Email Address</label>
-				<input type="email" />
-				<button class="btn" id="btnLogin">Next step &rarr;</button>
-			</form>
+			<div class="login-details hide">
+				<h2 class="modal__header">
+					<span class="highlight">IMPORTANT:</span> Remember these
+					details
+				</h2>
+				<h2 class="modal__header align-center">
+					username: <span id="username"></span>
+				</h2>
+				<h2 class="modal__header align-center">
+					pin: <span id="pin"></span>
+				</h2>
+				<button class="btn align-center" id="btnLogin">
+					Go to login
+				</button>
+			</div>
+
+			<div class="login-page">
+				<h2 class="modal__header">
+					Open your bank account <br />
+					in just <span class="highlight">5 minutes</span>
+				</h2>
+				<form class="modal__form">
+					<label>First Name</label>
+					<input type="text" id="fName" />
+					<label>Last Name</label>
+					<input type="text" id="lName" />
+					<label>Email Address</label>
+					<input type="email" id="email" />
+					<button class="btn" id="btnDetails">
+						Next step &rarr;
+					</button>
+				</form>
+			</div>
 		</div>
 		<div class="overlay hidden"></div>
 

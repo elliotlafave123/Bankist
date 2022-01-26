@@ -18,6 +18,29 @@ const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container");
 const tabsContent = document.querySelectorAll(".operations__content");
 
+const mobileNavBtn = document.getElementById("openMobileNav");
+const checkboxIcon = document.getElementById("checkboxIcon");
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// Mobile Nav
+if (window.innerWidth < 600) {
+	mobileNavBtn.checked = true;
+	nav.classList.add("hidden");
+
+	mobileNavBtn.addEventListener("change", function () {
+		if (mobileNavBtn.checked) {
+			nav.classList.add("hidden");
+			checkboxIcon.innerHTML = `<i class="fas fa-bars"></i>`;
+			checkboxIcon.style.fontSize = "2.5rem";
+		} else {
+			nav.classList.remove("hidden");
+			checkboxIcon.innerHTML = `<i class="fas fa-times"></i>`;
+			checkboxIcon.style.fontSize = "3rem";
+		}
+	});
+}
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // Modal Window and login btn

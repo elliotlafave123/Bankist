@@ -130,19 +130,9 @@ btnScrollTo.addEventListener("click", (e) => {
 		document.documentElement.clientHeight,
 		document.documentElement.clientWidth
 	);
-
 	// scrolling
 	section1.scrollIntoView({ behavior: "smooth" });
-
-	// window.scrollTo({
-	//   left: s1coords.left + window.scrollX,
-	//   top: s1coords.top + window.scrollY,
-	//   behavior: 'smooth',
-	// });
 });
-
-// 1. add event listener to common parent element
-// 2. Determine what element originated the event
 
 document.querySelector(".nav__links").addEventListener("click", function (e) {
 	e.preventDefault();
@@ -162,7 +152,7 @@ const showCookiesMessage = function () {
 	let cookiesAccepted = localStorage.getItem("bankistCookiesAccepted");
 
 	if (cookiesAccepted) {
-		console.log("cookies accepted");
+		return;
 	} else {
 		message.classList.add("cookie-message");
 		message.textContent =
@@ -330,7 +320,6 @@ const activateDots = function (slide) {
 		return document.querySelector(`.dots__dot[data-slide="${slide}"]`);
 	};
 	let i = value(slide);
-	console.log(i);
 	i.classList.add("dots__dot--active");
 };
 activateDots(0);
@@ -377,192 +366,16 @@ dotContainer.addEventListener("click", function (e) {
 	}
 });
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// Lectures
-
-/*
-
-
-// document.getElementById('section-1');
-
-// header.prepend(message);
-
-// header.append(message.cloneNode(true));
-// header.before(message);
-// header.after(message);
-
-// Delete elements
-
-// Styles
-
-// message.style.position = 'absolute';
-// message.style.bottom = '0';
-
-
-// selecting elements
-// console.log(document.documentElement);
-// console.log(document.head);
-// console.log(document.body);
-// console.log(allSections);
-
-*/
-
-/*
-console.log(message.style.color);
-console.log(message.style.backgroundColor);
-console.log(getComputedStyle(message).color);
-console.log(getComputedStyle(message).height);
-
-message.style.height =
-  Number.parseFloat(getComputedStyle(message).height, 10) + 24 + 'px';
-
-// document.documentElement.style.setProperty('--color-primary', 'orangered');
-
-// Attributes
-
-const logo = document.querySelector('.nav__logo');
-
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
-
-// data attributes
-console.log(logo.dataset.versionNumber);
-
-// Classes
-logo.classList.add('c', 'j');
-logo.classList.remove('c', 'j');
-logo.classList.toggle('c');
-logo.classList.contains('c');
-
-// dont use (overwrites and only 1 class)
-// logo.className = 'jonas';
-
-
-
-
-const h1 = document.querySelector('h1');
-
-// hover
-
-const alertH1 = function (e) {
-  alert('addEventListener: Great');
-
-  h1.removeEventListener('mouseenter', alertH1);
-};
-
-// better because you can add multiple event listeners to same event
-// can be removed
-h1.addEventListener('mouseenter', alertH1);
-
-// h1.onmouseenter = e => {
-//   alert('addEventListener: Great');
-// };
-
-
-// Event propogation
-// random color
-// rgb(255,255,255)
-
-const ramdomInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
-console.log(ramdomInt(0, 255));
-
-const randomColor = () =>
-  `rgb(${ramdomInt(0, 255)},${ramdomInt(0, 255)},${ramdomInt(0, 255)})`;
-
-console.log(randomColor(0, 255));
-
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  e.preventDefault();
-  this.style.backgroundColor = randomColor(0, 255);
-  console.log('link', e.target, e.currentTarget);
-
-  // stop event propogation
-  e.stopPropagation();
-});
-
-document.querySelector('.nav__links').addEventListener(
-  'click',
-  function (e) {
-    this.style.backgroundColor = randomColor(0, 255);
-    console.log('links', e.target, e.currentTarget);
-  },
-  false
-);
-
-document.querySelector('.nav').addEventListener(
-  'click',
-  function (e) {
-    this.style.backgroundColor = randomColor(0, 255);
-    console.log('nav', e.target, e.currentTarget);
-  },
-  true
-);
-// true makes it the first one to happen
-// false ignores bubbling events
-
-
-
-// DOM traversing
-
-const h1 = document.querySelector('h1');
-
-// Going downwards: child
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes);
-console.log(h1.children);
-h1.firstElementChild.style.color = 'orangered';
-h1.lastElementChild.style.color = 'white';
-
-// Going upwards: parents
-console.log(h1.parentNode);
-console.log(h1.parentElement);
-
-h1.closest('.header').style.background = 'var(--gradient-secondary)';
-
-h1.closest('h1').style.background = 'var(--gradient-primary)';
-
-// Going sideways: siblings
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
-
-console.log(h1.previousSibling);
-console.log(h1.nextSibling);
-
-console.log(h1.parentElement.children);
-[...h1.parentElement.children].forEach(function (el) {
-  if (el !== h1) el.style.transform = 'scale(0.5)';
-});
-*/
-
-// intersection observer and stick navigation
-
-// const initialCoords = section1.getBoundingClientRect();
-// console.log(initialCoords);
-
-// window.addEventListener('scroll', function (e) {
-//   if (window.scrollY > initialCoords.top) {
-//     nav.classList.add('sticky');
-//   } else nav.classList.remove('sticky');
+// document.addEventListener("DOMContentLoaded", function (e) {
+// 	console.log("HTML Parsed and DOM tree built", e);
 // });
 
-// Sticky Navigation: Intersection observer API
-// const observerCallback = function (entries, observer) {
-//   entries.forEach(function (entry) {
-//     console.log(entry);
-//     if (entry.isIntersecting == true) {
-//       nav.classList.add('sticky');
-//     } else nav.classList.remove('sticky');
-//   });
-// };
+// window.addEventListener("load", function (e) {
+// 	console.log("Page fully loaded", e);
+// });
 
-// const observerOptions = {
-//   root: null, // root
-//   threshold: [0, 0.2], // 10% threshold
-// };
-
-// const observer = new IntersectionObserver(observerCallback, observerOptions);
-// observer.observe(section1);
+// window.addEventListener("beforeunload", function (e) {
+// 	e.preventDefault();
+// 	console.log(e);
+// 	e.returnValue = "";
+// });

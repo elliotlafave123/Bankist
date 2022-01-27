@@ -1007,4 +1007,25 @@ h4 {
 	.footer__copyright .footer__link {
 		font-size: 1.4rem;
 	}
+
+	/* COOKIE MESSAGE */
+	.cookie-message {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 100vw;
+		background-color: white;
+		color: #bbb;
+		font-size: 1.2rem;
+		font-weight: 400;
+		position: fixed;
+		bottom: 0;
+		z-index: 100;
+		padding: 0 5rem;
+	}
+
+	.btn--close-cookie {
+		width: 40%;
+		height: 100%;
+	}
 }

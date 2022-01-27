@@ -375,6 +375,12 @@ btnSortMob.addEventListener("click", function (e) {
 	sorted = !sorted;
 });
 
+window.addEventListener("beforeunload", function (e) {
+	e.preventDefault();
+	console.log(e);
+	e.returnValue = "";
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
